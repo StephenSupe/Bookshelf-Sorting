@@ -8,39 +8,49 @@ class Bookshelf {
       this.books.push(book);
     };
     addFavorite(book) {
-      this.favorite.push(book)
+      this.favorite.push(book);
     }
     // create sort by number of topics/subjects
     topic(){
       console.log(this.topic) 
       books.sort((a, b) => {
-        if(a.subject.length > b.subject.length) return 1; 
+        if(a.subject.length > b.subject.length) {
+          return 1;
+        } 
         else {
-          return -1;}
+          return -1;
+        }
         })
+
         this.books.push(this.topic);
-      }
-    // render();
+      
+    render();
   // create a sort alphabetically A-Z
     alphabetAscend(){
       this.books.sort((a, b) => {
-        if(a.title > b.title) return 1;
+        if(a.title > b.title) {
+          return 1;
+         }
         else {
-        return -1;}
-      })
+          return -1;
+        }
+    })
     }
-      // this.render();
+      this.render();
     }
 
     alphabetDescend(){
       this.books.sort((a, b) => {
-        if(a.title < b.title) return 1;
+        if(a.title < b.title) {
+          return 1;
+        }
         else {
-        return -1;}
+          return -1;
+      }
       })
     }
-      this.render();
-    }
+      // this.render();
+    
     
   
  
@@ -73,8 +83,7 @@ const favCount = document.getElementById('#favcount');
 favCount.textContent = "Total Favorites:";
 const sumFav = books.reduce((p, c) =>{ p + 1
 }, 0); 
-return sumFav;
-favCount.append(sumFav);
+  // return sumFav;
 }
 
 
