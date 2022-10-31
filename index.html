@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorted bookshelf</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <h1 class="shelf-title">Book-Shelf</h1>
+    <div id ="bookshelf"></div>
+    <button class="book-button">Books</button>
+    <button class="fav-button">Favorites</button>
+    <select classs="sort">
+      <option value="default">Select Sort Option</option>
+      <option value="topic">topics by #</option>
+      <option value="AlphabeticalAscend">A-Z</option>
+      <option value="AlphabeticalDescend">Z-A</option>
+    </select>
+    <div id="favcount"></div>
+    <script src="js/book-data.js"></script>
+    <script src="js/book.js"></script>
+    <script src="js/bookshelf.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
