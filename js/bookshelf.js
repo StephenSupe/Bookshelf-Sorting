@@ -83,7 +83,7 @@ const favCount = document.getElementById('#favcount');
 favCount.textContent = "Total Favorites:";
 const sumFav = books.reduce((p, c) =>{ p + 1
 }, 0); 
-  // return sumFav;
+  sumFav(favCount);
 }
 
 

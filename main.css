@@ -1,0 +1,60 @@
+
+
+
+body {
+    background-image: url(https://th.bing.com/th/id/R.83d0f6196c8b0f067c904431a11e5d11?rik=D8uzLcVfjn7%2fSg&pid=ImgRaw&r=0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+
+#bookshelf {
+    height: 60vh;
+    width: 70%;
+    overflow: scroll;/* create a scroll in container so books don't consume the whole page */
+    background-color: lightgray;
+    /* remove view of scrollbar but scroll still exists */
+    /* -ms-overflow-style: none;   */
+    scrollbar-width: none; 
+}
+
+#bookshelf {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+ul {
+    list-style: none;
+    /* border: 1px solid greenyellow; */
+   
+}
+
+li {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 12px;
+
+}
+
+button {
+    display: flex;
+    align-items: center;
+    color: aqua;
+    background-color: black;
+}
+
+select {
+    color:aqua;
+    background-color: black ;
+}
+
+#favcount {
+    color: red;
+    font-size: 30px;
+    background-color: black;
+}
