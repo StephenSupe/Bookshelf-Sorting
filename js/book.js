@@ -5,7 +5,7 @@ class Book {
     this.subject = subject;
     this.title = title;
   }
-
+}
 
 render(){
   //favorite button
@@ -43,11 +43,8 @@ render(){
     book.append(favoriteBtn);
   
   return book;
-}
+  }
 
-
-
-}
 // let book1 = new Book('j.k. rowling', 'en', ['math', 'science'], 'harry potter' );
 // console.log(book1);
 // book1.render();

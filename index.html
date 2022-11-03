@@ -8,17 +8,26 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <h1 class="shelf-title">Book-Shelf</h1>
+    <header class="header">
+      <nav>
+          <a href="index.html">bookshelf</a>   
+          <a href="about.html">about</a>
+          <a href="contact.html">contact info</a>
+      </nav>
+  </header>
+    <!-- <h1 class="shelf-title">Book-Shelf</h1> -->
     <div id ="bookshelf"></div>
+    <button onClick="createbook()">Add Book</button>
+    <p id="createdown"></p>
     <button class="book-button">Books</button>
     <button class="fav-button">Favorites</button>
-    <select classs="sort">
+    <select class="sort">
       <option value="default">Select Sort Option</option>
       <option value="topic">topics by #</option>
       <option value="AlphabeticalAscend">A-Z</option>
       <option value="AlphabeticalDescend">Z-A</option>
     </select>
-    <div id="favcount">Total Favorited: 0</div>
+    <div id="favcount">Total Favorites: 0</div>
     <script src="js/book-data.js"></script>
     <script src="js/book.js"></script>
     <script src="js/bookshelf.js"></script>

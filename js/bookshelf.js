@@ -7,12 +7,13 @@ class Bookshelf {
     addBook (book) {
       this.books.push(book);
     };
+    //function to add book to favorites array
     addFavorite(book) {
       this.favorite.push(book);
     }
     // create sort by number of topics/subjects
     topic(){
-      console.log(this.topic) 
+      // console.log(this.topic); 
       books.sort((a, b) => {
         if(a.subject.length > b.subject.length) {
           return 1;
@@ -24,9 +25,9 @@ class Bookshelf {
 
         this.books.push(this.topic);
       
-    render();
+    render() {
   // create a sort alphabetically A-Z
-    alphabetAscend(){
+    alphabetAscend()
       this.books.sort((a, b) => {
         if(a.title > b.title) {
           return 1;
@@ -35,10 +36,10 @@ class Bookshelf {
           return -1;
         }
     })
+  }
+      // this.render();
     }
-      this.render();
-    }
-
+  //sorted list from Z-A 
     alphabetDescend(){
       this.books.sort((a, b) => {
         if(a.title < b.title) {
@@ -48,12 +49,9 @@ class Bookshelf {
           return -1;
       }
       })
+console.log(alphabetDescend);
     }
-      // this.render();
-    
-    
-  
- 
+      // this.render()
     render () {
       const ul = document.createElement("ul");
   //refactor Bookshelf using map
@@ -67,10 +65,11 @@ class Bookshelf {
       shelf.append(book);
       })
 
-      console.log(ul)
+      console.log(ul);
       return ul;
     };
   }
+//render favorited books to dom
   renderFav () {
     const shelf = document.querySelector('#bookshelf');
     shelf.innerHTML = '';

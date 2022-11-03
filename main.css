@@ -1,3 +1,31 @@
+.header { 
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    font-size: 2rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: .5em 1em;
+    box-shadow: 0 2px 4px -2px black; 
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.header nav > * {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+.header nav > *:hover {
+    text-decoration: underline;
+    color: rgb(48, 71, 55);
+}
 
 
 
@@ -12,9 +40,9 @@ body {
 
 #bookshelf {
     height: 60vh;
-    width: 70%;
+    width: 90%;
     overflow: scroll;/* create a scroll in container so books don't consume the whole page */
-    background-color: lightgray;
+    background-color: rgb(235, 233, 233);
     /* remove view of scrollbar but scroll still exists */
     /* -ms-overflow-style: none;   */
     scrollbar-width: none; 
@@ -46,15 +74,20 @@ button {
     align-items: center;
     color: aqua;
     background-color: black;
+    border-radius: 30%;
 }
 
 select {
     color:aqua;
     background-color: black ;
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
 
 #favcount {
-    color: red;
+    color: aqua;
     font-size: 30px;
     background-color: black;
 }
