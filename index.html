@@ -7,21 +7,24 @@
     <title>Sorted bookshelf</title>
     <link rel="stylesheet" href="main.css">
   </head>
+  <header class="header">
+    <nav>
+        <a href="index.html">bookshelf</a>   
+        <a href="about.html">about</a>
+        <a href="contact.html">contact info</a>
+    </nav>
+</header>
   <body>
-    <header class="header">
-      <nav>
-          <a href="index.html">bookshelf</a>   
-          <a href="about.html">about</a>
-          <a href="contact.html">contact info</a>
-      </nav>
-  </header>
-    <!-- <h1 class="shelf-title">Book-Shelf</h1> -->
+    <div id="book-counter">Total Books:</div>
     <div id ="bookshelf"></div>
-    <button onClick="createbook()">Add Book</button>
+    <!-- Create form here -->
+    <button id="createbook">Add Book</button>
+    <!-- After creating form, grab elements (value). On button click create a new book from each value,
+       push book into shelf, render shelf -->
     <p id="createdown"></p>
-    <button class="book-button">Books</button>
-    <button class="fav-button">Favorites</button>
-    <select class="sort">
+    <button id="book-button">Books</button>
+    <button id="fav-button">Favorites</button>
+    <select id="sort">
       <option value="default">Select Sort Option</option>
       <option value="topic">topics by #</option>
       <option value="AlphabeticalAscend">A-Z</option>

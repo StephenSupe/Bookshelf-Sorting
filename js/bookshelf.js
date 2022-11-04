@@ -1,8 +1,32 @@
+//separation of concerns, logical flow, abstracted away isolated sets
+
 class Bookshelf {
   constructor(books = []) {
     this.favorite = [];
     this.books = books;
+    // this.bookCount = this.countBooks(this.books)
+    // this.nonEnglishCount = this.countForeign(this.books)
+    //this.avgTopics = this.countAvgSubj(this.books)
   }
+    // countBooks() {
+    //   // LOOP HERE
+    // }
+
+    // countForeign() {
+    //   this.books.reduce((counter, book) => {
+    //     if (book.language !== 'en') counter += 1
+    //     return counter;
+    //   }, 0);
+    // }
+
+    countAvgSubj() {
+      let totalSubjects = 0
+      this.books.forEach(book => totalSubjects += book.subject.length())
+      console.log(totalSubjects)
+      return totalSubjects / this.books.length()
+    }
+  
+
   
     addBook (book) {
       this.books.push(book);
@@ -24,8 +48,9 @@ class Bookshelf {
         })
 
         this.books.push(this.topic);
-      
-    render() {
+      }
+
+    sort () {
   // create a sort alphabetically A-Z
     alphabetAscend()
       this.books.sort((a, b) => {
@@ -36,9 +61,9 @@ class Bookshelf {
           return -1;
         }
     })
+      this.sort();
   }
-      // this.render();
-    }
+     
   //sorted list from Z-A 
     alphabetDescend(){
       this.books.sort((a, b) => {
@@ -49,8 +74,19 @@ class Bookshelf {
           return -1;
       }
       })
-console.log(alphabetDescend);
+// console.log(alphabetDescend);
     }
+    
+    // createLikeBtn () {
+    //   const addToFavoriteBtn2 = document.getElementById('addToFavButton');
+    //   console.log(addToFavoriteBtn2)
+    //   addToFavoriteBtn2.addEventListener('click', ()=> {
+    //     console.log("clicked")
+    //     if(!this.favorite.includes(book)) this.addFavorite(book);
+    //   })
+    //   return addToFavoriteBtn2
+    // }
+
       // this.render()
     render () {
       const ul = document.createElement("ul");
@@ -58,32 +94,75 @@ console.log(alphabetDescend);
       this.books.map((book) => {
         const newBook = new Book(book.author, book.language, book.subject, book.title)
         ul.append(newBook.render());
-      const favoriteBtn = book.querySelector('button');
-      favoriteBtn.addEventListener('click', ()=> {
-        if(!this.favorite.includes(book)) this.addFavorite(book);
-      })
-      shelf.append(book);
+        const addToFavoriteBtn = document.createElement('button');
+        // const commentBtn = document.createElement('button');
+        // const sendBtn = document.createElement('button');
+        // addToFavoriteBtn.setAttribute("id", "addToFavButton")
+        addToFavoriteBtn.innerHTML = 'add to list of favorites';
+        // commentBtn.innerHTML = 'Add Comment'
+        // sendBtn.innerHTML = 'Send'
+        addToFavoriteBtn.id = 'addToFavButton'
+        addToFavoriteBtn.style.width ="15%" ;
+        addToFavoriteBtn.addEventListener('click', () => {
+          // console.log("clicked")
+          if(!this.favorite.includes(newBook)) this.addFavorite(newBook);
+          this.render();
+        })
+        // let textArea = this.createCommentSection()
+        // textArea.style.display = 'none'
+        // sendBtn.style.display = 'none'
+        // commentBtn.addEventListener('click', () => {
+        //   textArea.style.display = '';
+        //   sendBtn.style.display = '';
+        // })
+
+        // sendBtn.addEventListener('click', () => {
+        //   let comment = textArea.value;
+        //   newBook.comment.push(comment);
+        //   // this.renderComment(newBook);
+        //   console.log(newBook)
+        //   newBook.render()
+        // })
+
+        // console.log(addToFavoriteBtn)
+        ul.append(addToFavoriteBtn)
+        // ul.append(commentBtn)
+        // ul.append(textArea)
+        // ul.append(sendBtn)
+      // ul.append(newBook);
       })
 
-      console.log(ul);
+      // console.log(ul);
       return ul;
     };
-  }
 //render favorited books to dom
-  renderFav () {
+; renderFav () {
     const shelf = document.querySelector('#bookshelf');
     shelf.innerHTML = '';
+    console.log(this.favorite)
     this.favorite.map((book) =>{ 
-      const book = book.render();
-      shelf.append(book);
+      // const book = book.render();
+      console.log(book);
+      shelf.append(book.render());
+      console.log(shelf)
     })
+    // console.log(shelf);
 //create element with sum of favorite books displayed, use reduce
-const favCount = document.getElementById('#favcount');
+const favCount = document.querySelector('#favcount');
 favCount.textContent = "Total Favorites:";
-const sumFav = books.reduce((p, c) =>{ p + 1
+const sumFav = this.books.reduce((p, c) =>{ p + 1
 }, 0); 
-  sumFav(favCount);
+  // sumFav(favCount);
+  return favCount;
 }
 
+// createCommentSection () {
+//   let textArea = document.createElement('textarea')
+//   textArea.maxLength = 280
+//   return textArea
+// }
+// console.log(sumFav);
 
- 
+
+}
+

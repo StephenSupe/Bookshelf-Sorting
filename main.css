@@ -2,12 +2,13 @@
     display: flex;
     justify-content: space-between;
     color: black;
-    font-size: 2rem;
+    font-size: 1rem;
     position: fixed;
     left: 0;
     right: 0;
     padding: .5em 1em;
     box-shadow: 0 2px 4px -2px black; 
+    background-color: aliceblue;
 }
 
 .header nav {
@@ -39,7 +40,7 @@ body {
 }
 
 #bookshelf {
-    height: 60vh;
+    height: 70vh;
     width: 90%;
     overflow: scroll;/* create a scroll in container so books don't consume the whole page */
     background-color: rgb(235, 233, 233);
@@ -49,6 +50,7 @@ body {
 }
 
 #bookshelf {
+    margin-top: 6%;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -90,4 +92,12 @@ select {
     color: aqua;
     font-size: 30px;
     background-color: black;
+}
+
+#about-text {
+    color: blueviolet;
+    background-color: azure;
+    padding: 10%;
+    font-size: 20px;
+    margin-top: 7%;
 }
