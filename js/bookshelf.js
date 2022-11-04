@@ -6,12 +6,18 @@ class Bookshelf {
     this.books = books;
     // this.bookCount = this.countBooks(this.books)
     // this.nonEnglishCount = this.countForeign(this.books)
-    //this.avgTopics = this.countAvgSubj(this.books)
+    // this.avgTopics = this.countAvgSubj(this.books)
   }
     // countBooks() {
-    //   // LOOP HERE
+    //   let count = 0
+    //   for(let i = 0; i < this.books.length; i++) {
+    //     count ++;
+    //   }
+    //   return count;
+    //   //attach to element or render to doc
     // }
-
+    
+    //TDD#2 use reduce, count total number of non-english books 
     // countForeign() {
     //   this.books.reduce((counter, book) => {
     //     if (book.language !== 'en') counter += 1
@@ -19,13 +25,15 @@ class Bookshelf {
     //   }, 0);
     // }
 
-    countAvgSubj() {
-      let totalSubjects = 0
-      this.books.forEach(book => totalSubjects += book.subject.length())
-      console.log(totalSubjects)
-      return totalSubjects / this.books.length()
-    }
-  
+    // countAvgSubj() {
+    //   let totalSubjects = 0
+    //   this.books.forEach(book => totalSubjects += book.subject.length())
+    //   console.log(totalSubjects)
+    //   return totalSubjects / this.books.length()
+    // }
+    // addnonEnglishCount (book) {
+      // this.nonEnglishCount.push(book);
+    // };
 
   
     addBook (book) {
@@ -165,4 +173,5 @@ const sumFav = this.books.reduce((p, c) =>{ p + 1
 
 
 }
-
+// console.log(this.books(countBooks));
+// console.log(this.nonEnglishCount);

@@ -1,12 +1,14 @@
 class Book {
-  constructor(author, language, subject, title) {
+  constructor(author, language, subject, title,) {
     this.author = author;
     this.language = language;
     this.subject = subject;
     this.title = title;
     this.comment = []
-    // this.numPages = //Math.floor, Math.random ..........
-    // this.category = numPages > 100 ? 'novel' : 'short story'
+    //TDD Alternate #4 (generate random page number and assign category to each book)
+    this.numPages = Math.floor(Math.random() * 101); //generate random page number for each book
+    //if page number is > 100 assign novel, else assign short story as category
+    this.category = this.numPages > 100 ? 'novel' : 'short story'
   }
 
 
@@ -27,6 +29,16 @@ render(){
   const subjectwrapper = document.createElement('li');
   const Subject = document.createElement('ul');
         Subject.innerHTML = 'Subjects:'  
+ //TDD alternate #4, create list element and append random number of pages from 1-100
+  const NumberPages = document.createElement('li');
+  NumberPages.innerHTML = `number of pages: ${this.numPages}`;
+  bookInfo.append(NumberPages);
+  //create list item and append to book info
+  const category = document.createElement('li');
+  category.innerHTML = `Category: ${this.category}`;
+  bookInfo.append(category);
+
+  
 
   const commentBtn = document.createElement('button');
   const sendBtn = document.createElement('button');

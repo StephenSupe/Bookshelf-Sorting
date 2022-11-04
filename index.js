@@ -7,26 +7,47 @@ const shelf = document.querySelector('#bookshelf');
 const bookBtn = document.querySelector('#book-button');
 const favBtn = document.querySelector('#fav-button');
 const sortBook = document.querySelector('#sort');
+console.log(countBooks());
+//TDD #1: counter using a for loop to display a book count on screen
+function countBooks() {
+//each increment of book in bookData array, increment count by 1 (book counter)
+  let count = 0
+  for(let i = 0; i < bookData.length; i++) {
+    count ++;
+  }
+  return count;
+  //attach to element or render to doc
+}
 
-// console.log(shelfInstance);
+shelf.append(`Book Count: ${countBooks()}`)
 shelf.append(shelfInstance.render());
 
 // console.log(shelf);
 
 //form to add a new book to the shelf thats renders when "Add Book" button is clicked
 //addBook grabs the 'add book' button
-const br = document.createElement("br");
+// const br = document.createElement("br");
 
 const addBook = document.getElementById('createbook');
 //get input values by ids, populate new book with values
+nbauthor = document.getElementById("form_author");
+nblanguage = document.getElementById("form_language");
+nbsubject = document.getElementById("form_subject");
+nbtitle = document.getElementById("form_title");
+
 addBook.addEventListener(('click'), () => {
+  
   const newBook = new Book(nbauthor.value, nblanguage.value, nbsubject.value, nbtitle.value)
+  
+  bookData.push(newBook);
+  rBookShelf(books);
+
   //push new book into shelf
   //render shelf
   console.log(newBook)
 })
 //append form to add book button???
-addBook.appendChild(form);
+// addBook.appendChild(form);
 //button response for all buttons and sorting options that renders data according to selection by user
 takeHome = () => {
   window.location.href="index.html"
@@ -64,6 +85,10 @@ sortBook.addEventListener('change', () => {
 )}
 
 rBookShelf(bookData);
+setTimeout(() => {
+  console.log('foo')
+  rBookShelf(bookData)
+},5000)
 // console.log(bookData);
 
 
