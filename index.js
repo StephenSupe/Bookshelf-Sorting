@@ -1,4 +1,4 @@
-//separation of concerns, logical flow, abstracted away isolated sets
+
 function rBookShelf(books){
 
 // console.log(books)
@@ -7,27 +7,42 @@ const shelf = document.querySelector('#bookshelf');
 const bookBtn = document.querySelector('#book-button');
 const favBtn = document.querySelector('#fav-button');
 const sortBook = document.querySelector('#sort');
-console.log(countBooks());
+const bookCounter = document.querySelector('#bookcount');
+// const foreigncounter = document.querySelector('#nonenglish')
+
+//TDD #2
+document.getElementById('nonenglish').innerHTML = `Foreign Count:${books.reduce(foreignCounter, 0)}`;
+function foreignCounter (total, book) {
+  if (book.language !== 'en') total += 1;
+    return total;
+}
+
+// function countForeign() {
+//     books.reduce((counter, book) => {
+//     //if value of language in book does not equal 'en', increase count by 1
+//     if (book.language !== 'en') counter += 1;
+//     return counter;
+//   }, 0);
+// }
+//   foreigncounter.append(`Non-English Count: ${countForeign()}`)
+
+
+
 //TDD #1: counter using a for loop to display a book count on screen
 function countBooks() {
-//each increment of book in bookData array, increment count by 1 (book counter)
+//each increment of book in bookData array, increment count by 1 (book counter) and return total count
   let count = 0
   for(let i = 0; i < bookData.length; i++) {
     count ++;
   }
   return count;
-  //attach to element or render to doc
 }
 
-shelf.append(`Book Count: ${countBooks()}`)
+bookCounter.innerHTML = (`Book Count: ${countBooks()}`)
 shelf.append(shelfInstance.render());
-
-// console.log(shelf);
 
 //form to add a new book to the shelf thats renders when "Add Book" button is clicked
 //addBook grabs the 'add book' button
-// const br = document.createElement("br");
-
 const addBook = document.getElementById('createbook');
 //get input values by ids, populate new book with values
 nbauthor = document.getElementById("form_author");
@@ -44,7 +59,7 @@ addBook.addEventListener(('click'), () => {
 
   //push new book into shelf
   //render shelf
-  console.log(newBook)
+
 })
 //append form to add book button???
 // addBook.appendChild(form);
@@ -80,15 +95,14 @@ sortBook.addEventListener('change', () => {
   shelfInstance.render();
 }
 
-
 }
 )}
 
 rBookShelf(bookData);
-setTimeout(() => {
-  console.log('foo')
-  rBookShelf(bookData)
-},5000)
+// setTimeout(() => {
+//   console.log('foo')
+//   rBookShelf(bookData)
+// },5000)
 // console.log(bookData);
 
 

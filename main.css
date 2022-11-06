@@ -1,6 +1,6 @@
 .header { 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     color: black;
     font-size: 1rem;
     position: fixed;
@@ -34,6 +34,9 @@ body {
     background-image: url(https://th.bing.com/th/id/R.83d0f6196c8b0f067c904431a11e5d11?rik=D8uzLcVfjn7%2fSg&pid=ImgRaw&r=0);
     display: flex;
     flex-direction: column;
+    /* flex-wrap: wrap;
+    flex-grow: 1;
+    align-items: flex-start; */
     align-items: center;
     
     
@@ -41,12 +44,12 @@ body {
 
 #bookshelf {
     height: 70vh;
-    width: 90%;
+    width: 50%;
     overflow: scroll;/* create a scroll in container so books don't consume the whole page */
     background-color: rgb(235, 233, 233);
     /* remove view of scrollbar but scroll still exists */
     /* -ms-overflow-style: none;   */
-    scrollbar-width: none; 
+    /* scrollbar-width: none;  */
 }
 
 #bookshelf {
@@ -103,6 +106,24 @@ select {
 }
 
 form {
-    color: aqua;
-    background-color: black;
+    /* color: ; */
+    background-color: lightgoldenrodyellow;
+}
+
+.container-contact {
+    margin-top: 20%;
+}
+
+#contacth2 {
+    color: black;
+
+}
+
+#contactform {
+    background-color: lightblue;
+}
+
+#bookcount, #nonenglish {
+    color: aliceblue;
+    background-color: gray;
 }

@@ -4,13 +4,13 @@ class Book {
     this.language = language;
     this.subject = subject;
     this.title = title;
-    this.comment = []
+    this.comments = []
     //TDD Alternate #4 (generate random page number and assign category to each book)
-    this.numPages = Math.floor(Math.random() * 101); //generate random page number for each book
-    //if page number is > 100 assign novel, else assign short story as category
+    this.numPages = Math.floor(Math.random() * 301); //generate random page number for each book
+    //if page number is > 100 assign novel, else assign short story as category (pages < 100)
     this.category = this.numPages > 100 ? 'novel' : 'short story'
+    this.commentSection = document.createElement('ul')
   }
-
 
 render(){
   const book = document.createElement('li');
@@ -37,9 +37,7 @@ render(){
   const category = document.createElement('li');
   category.innerHTML = `Category: ${this.category}`;
   bookInfo.append(category);
-
-  
-
+//create button element and page text
   const commentBtn = document.createElement('button');
   const sendBtn = document.createElement('button');
   commentBtn.innerHTML = 'Add Comment'
@@ -52,12 +50,11 @@ render(){
     textArea.style.display = '';
     sendBtn.style.display = '';
   })
-
+//
   sendBtn.addEventListener('click', () => {
     let comment = textArea.value;
-    this.comment.push(comment);
-    console.log(this.comment)
-    this.render()
+    this.comments.push(comment);
+    this.renderComments();
   })
 
     for(const sub of this.subject){
@@ -71,26 +68,37 @@ render(){
     book.append(commentBtn)
     book.append(textArea)
     book.append(sendBtn)
-    book.append(`Comments: ${this.comment.map(comment => comment)}`)
-
+    book.append(`Comments:`)
+    book.append(this.commentSection)
     // book.append(addToFavoriteBtn);
     // this.renderComment()
-  
   return book;
   }
-
   // renderComment(book){
   //   book.append(`Comments: ${this.comment.map(comment => comment)}`)
   // }
-
-
   createCommentSection () {
-    let textArea = document.createElement('textarea')
+    const textArea = document.createElement('textarea')
     textArea.maxLength = 280
     return textArea
   }
-}//end off book class
 
+  renderComments () {
+    // this.comments.map(comment => {
+    //   const commentEl = document.createElement('li');
+    //   commentEl.innerHTML = comment;
+    //   this.commentSection.append(commentEl);
+    // })
+
+   //grab the last comment and create a list item element and append the element
+    let comment;
+    this.comments.length >= 1 ? comment = this.comments[this.comments.length -1] : comment = 'No commments'
+    const commentEl = document.createElement('li');
+    commentEl.innerHTML = comment;
+    this.commentSection.append(commentEl);
+  }
+
+}//end off book class
 // let book1 = new Book('j.k. rowling', 'en', ['math', 'science'], 'harry potter' );
 // console.log(book1);
 // book1.render();

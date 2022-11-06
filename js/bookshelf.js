@@ -18,13 +18,16 @@ class Bookshelf {
     // }
     
     //TDD#2 use reduce, count total number of non-english books 
+ 
     // countForeign() {
     //   this.books.reduce((counter, book) => {
+    //     //if value of language in book does not equal 'en', increase count by 1
     //     if (book.language !== 'en') counter += 1
     //     return counter;
     //   }, 0);
     // }
-
+  
+  //TDD#3 Average number of topics
     // countAvgSubj() {
     //   let totalSubjects = 0
     //   this.books.forEach(book => totalSubjects += book.subject.length())
@@ -32,7 +35,7 @@ class Bookshelf {
     //   return totalSubjects / this.books.length()
     // }
     // addnonEnglishCount (book) {
-      // this.nonEnglishCount.push(book);
+    //   this.nonEnglishCount.push(book);
     // };
 
   
@@ -116,6 +119,8 @@ class Bookshelf {
           if(!this.favorite.includes(newBook)) this.addFavorite(newBook);
           this.render();
         })
+
+
         // let textArea = this.createCommentSection()
         // textArea.style.display = 'none'
         // sendBtn.style.display = 'none'
@@ -152,16 +157,14 @@ class Bookshelf {
       // const book = book.render();
       console.log(book);
       shelf.append(book.render());
-      console.log(shelf)
+      // console.log(shelf)
     })
-    // console.log(shelf);
 //create element with sum of favorite books displayed, use reduce
 const favCount = document.querySelector('#favcount');
-favCount.textContent = "Total Favorites:";
-const sumFav = this.books.reduce((p, c) =>{ p + 1
+const sumFav = this.books.reduce((prev, current) =>{ prev + 1
 }, 0); 
-  // sumFav(favCount);
-  return favCount;
+favCount.innerHTML = `Total Favorites: ${this.books.sumFav}`
+console.log(favCount)
 }
 
 // createCommentSection () {
