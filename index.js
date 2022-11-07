@@ -1,32 +1,20 @@
 
 function rBookShelf(books){
 
-// console.log(books)
 const shelfInstance = new Bookshelf(books);
 const shelf = document.querySelector('#bookshelf');
 const bookBtn = document.querySelector('#book-button');
 const favBtn = document.querySelector('#fav-button');
-const sortBook = document.querySelector('#sort');
+const sortBooks = document.querySelector('#sort');
 const bookCounter = document.querySelector('#bookcount');
-// const foreigncounter = document.querySelector('#nonenglish')
 
 //TDD #2
-document.getElementById('nonenglish').innerHTML = `Foreign Count:${books.reduce(foreignCounter, 0)}`;
+document.getElementById('nonenglish').innerHTML = `Foreign language book Count:${books.reduce(foreignCounter, 0)}`;
 function foreignCounter (total, book) {
+  //if value of language in book does not equal 'en', increase count by 1
   if (book.language !== 'en') total += 1;
     return total;
 }
-
-// function countForeign() {
-//     books.reduce((counter, book) => {
-//     //if value of language in book does not equal 'en', increase count by 1
-//     if (book.language !== 'en') counter += 1;
-//     return counter;
-//   }, 0);
-// }
-//   foreigncounter.append(`Non-English Count: ${countForeign()}`)
-
-
 
 //TDD #1: counter using a for loop to display a book count on screen
 function countBooks() {
@@ -37,7 +25,7 @@ function countBooks() {
   }
   return count;
 }
-
+//final count of total books set as a string and added to the page
 bookCounter.innerHTML = (`Book Count: ${countBooks()}`)
 shelf.append(shelfInstance.render());
 
@@ -50,39 +38,35 @@ nblanguage = document.getElementById("form_language");
 nbsubject = document.getElementById("form_subject");
 nbtitle = document.getElementById("form_title");
 
-addBook.addEventListener(('click'), () => {
-  
+addBook.addEventListener(('click'), () => {  
   const newBook = new Book(nbauthor.value, nblanguage.value, nbsubject.value, nbtitle.value)
-  
   bookData.push(newBook);
   rBookShelf(books);
-
-  //push new book into shelf
-  //render shelf
-
+  //push new book into shelf instance
+  //render shelf new book is added to list
 })
-//append form to add book button???
-// addBook.appendChild(form);
-//button response for all buttons and sorting options that renders data according to selection by user
+//redirect browser
 takeHome = () => {
   window.location.href="index.html"
 }
+//button response for all buttons and sorting options that renders data according to selection by user
 bookBtn.addEventListener('click', () => {
-  // shelfInstance.render();
   takeHome();
 })
-//if user clicks 'favorites', render only list of favorite books
+//if user clicks 'favorites', render only list of books added to the favorite list
 favBtn.addEventListener('click', () => {
   shelfInstance.renderFav();
 })
 
 //Select Sort Option list function
 //if user selects ascend sort render shelf in order A-Z
-sortBook.addEventListener('change', () => {
+// let select = document.querySelector('select')
+sortBooks.addEventListener('change', () => {
+  let select = document.querySelector('select')
   if (select.value === 'AlphabeticalAscend' ) {
   shelfInstance.alphabetAscend();
 }
-//if user selects descend sort render shelf in order Z-A
+//if user selects descend sort, render shelf in order Z-A
   if (select.value === 'AlphabeticalDescend' ) {
   shelfInstance.alphabetDescend();
 }
@@ -90,67 +74,12 @@ sortBook.addEventListener('change', () => {
   if (select.value === 'topic' ) {
   shelfInstance.topic();
 }
-//if user selects Select Sort Option as sort option render whole shelf
+//if user selects Select Sort Option as sort option render base shelf
   else {
   shelfInstance.render();
-}
-
-}
+    }
+  }
 )}
 
 rBookShelf(bookData);
-// setTimeout(() => {
-//   console.log('foo')
-//   rBookShelf(bookData)
-// },5000)
-// console.log(bookData);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //create form element
-// const form = document.createElement("form");
-// //create input element new book title 
-// const nbtitle = document.createElement("input"); 
-//   nbtitle.setAttribute("type", "text");
-//   nbtitle.setAttribute("name", "title");
-//   nbtitle.setAttribute("placeholder", "Title");
-// //new book author
-// const nbauthor = document.createElement("input"); 
-//   nbauthor.setAttribute("type", "text");
-//   nbauthor.setAttribute("name", "Author");
-//   nbauthor.setAttribute("placeholder", "Author");
-// //new book subject
-// const nbsubject = document.createElement("input"); 
-//   nbsubject.setAttribute("type", "text");
-//   nbsubject.setAttribute("name", "Subject");
-//   nbsubject.setAttribute("placeholder", "Subject(s)");
-// //new book language
-// const nblanguage = document.createElement("input"); 
-//   nblanguage.setAttribute("type", "text");
-//   nblanguage.setAttribute("name", "language");
-//   nblanguage.setAttribute("placeholder", "language");
-//   //submit button 
-// const submitbook = document.createElement("input");
-// submitbook.setAttribute("type", "submit");
-// submitbook.setAttribute("value", "Submit"); 
-// //append inputs to form
-// form.appendChild(nbtitle);
-// form.appendChild(nbauthor);
-// form.appendChild(nbsubject);
-// form.appendChild(nblanguage);
-// // form.appendChild(submitbook);
 
