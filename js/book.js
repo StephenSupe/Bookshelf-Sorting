@@ -49,9 +49,11 @@ render(){
 
 //create button element and page text
   const commentBtn = document.createElement('button');
+  commentBtn.style.width = '17%'
   const sendBtn = document.createElement('button');
   commentBtn.innerHTML = 'Add Comment'
   sendBtn.innerHTML = 'Send'
+  
 
 //create a comment section with click event to display textarea/send
   let textArea = this.createCommentSection()
@@ -92,7 +94,7 @@ render(){
     textArea.maxLength = 280
     return textArea
   }
-  
+
 //render the comments, grabs the last comment and creates a list item. append comment to commentSection
   renderComments () {
     let comment;

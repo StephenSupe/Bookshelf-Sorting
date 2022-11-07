@@ -12,47 +12,47 @@ class Bookshelf {
     addFavorite(book) {
       this.favorite.push(book);
     }
-    // create sort by number of topics/subjects
     
-  //   topic(){
-  //    //compare the values of subject, books are sorted by number of topics
-  //     this.books.sort((a, b) => {
-  //       //if value of book subject a is less than b 
-  //       if(a.subject > b.subject) {
-  //         return 1;
-  //       } 
-  //       else {
-  //         return -1;
-  //       }
-  //       });
+    // create sort by number of topics/subjects
+    topic(){
+     //compare the values of subject, books are sorted by number of topics
+      this.books.sort((a, b) => {
+        //if value of book subject a is less than b 
+        if(a.subject > b.subject) {
+          return 1;
+        } 
+        else {
+          return -1;
+        }
+        });
 
-  //       this.books.push(this.topic);
-  //     }
+        this.books.push(this.topic);
+      }
 
-  //   sort () {
-  // // create a sort alphabetically A-Z
-  //   alphabetAscend()
-  //     this.books.sort((a, b) => {
-  //       if(a.title < b.title) {
-  //         return -1;
-  //        }
-  //       else {
-  //         return +1;
-  //       }
-  //   })
-  // }
+    sort () {
+  // create a sort alphabetically A-Z
+    alphabetAscend()
+      this.books.sort((a, b) => {
+        if(a.title < b.title) {
+          return -1;
+         }
+        else {
+          return +1;
+        }
+    })
+  }
      
-  // //sorted list from Z-A 
-  //   alphabetDescend(){
-  //     this.books.sort((a, b) => {
-  //       if(a.title < b.title) {
-  //         return 1;
-  //       }
-  //       else {
-  //         return -1;
-  //     }
-  //     })
-  //   }
+  //sorted list from Z-A 
+    alphabetDescend(){
+      this.books.sort((a, b) => {
+        if(a.title < b.title) {
+          return 1;
+        }
+        else {
+          return -1;
+      }
+      })
+    }
     
     render () {
       const ul = document.createElement("ul");

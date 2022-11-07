@@ -9,7 +9,7 @@ const sortBooks = document.querySelector('#sort');
 const bookCounter = document.querySelector('#bookcount');
 
 //TDD #2
-document.getElementById('nonenglish').innerHTML = `Foreign language book Count:${books.reduce(foreignCounter, 0)}`;
+document.getElementById('nonenglish').innerHTML = `Foreign Language Book Count:${books.reduce(foreignCounter, 0)}`;
 function foreignCounter (total, book) {
   //if value of language in book does not equal 'en', increase count by 1
   if (book.language !== 'en') total += 1;
@@ -38,13 +38,17 @@ nblanguage = document.getElementById("form_language");
 nbsubject = document.getElementById("form_subject");
 nbtitle = document.getElementById("form_title");
 
+//push the newly added book to the array of books 
 addBook.addEventListener(('click'), () => {  
   const newBook = new Book(nbauthor.value, nblanguage.value, nbsubject.value, nbtitle.value)
   bookData.push(newBook);
   rBookShelf(books);
-  //push new book into shelf instance
-  //render shelf new book is added to list
+  //form validation for title 
+  if (nbtitle.value == 0) {
+    alert("please insert a title");
+  }
 })
+
 //redirect browser
 takeHome = () => {
   window.location.href="index.html"
